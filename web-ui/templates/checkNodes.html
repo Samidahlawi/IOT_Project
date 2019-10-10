@@ -1,0 +1,41 @@
+{% extends "layout.html"  %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Nodes Available in configuration
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='css/nods.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="nodeInfo">
+	<table class="table">
+	<thead class="thead-dark">
+	<tr>
+    	<th>Node Name</th>
+    	<th>Humdity Interval</th>
+    	<th>Temperature Interval</th>
+    	<th>Mode</th>
+  	</tr>
+  	</thead>
+	{% for node in nodes %}
+		<tr>
+			<th>{{ node['name'] }}</th>
+			<th>{{ node['humdity'] }}</th>
+			<th>{{ node['temperature'] }}</th>
+			<th>{{ node['protocol'] }}</th>
+		</tr>
+	{% endfor %}
+	</table>
+	</div>
+
+  <a href="{{ url_for('scenario') }}" class="btn btn-primary">Go to scenario</a>
+  <a href="{{ url_for('node') }}" class="btn btn-primary">Go back to node configuration</a>
+</div> <!-- /container -->
+
+{% endblock %}

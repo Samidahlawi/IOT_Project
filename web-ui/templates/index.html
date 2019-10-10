@@ -1,0 +1,24 @@
+{% extends "layout.html"  %}
+
+{% block content %}
+	<main class="hero-section">
+		<div class="container">
+
+			<div class="section-content">
+				<h2>Testbed project, done using raspberry pi and varient communications module including Zigbee,6lowpan.</h2>
+				<a href="{{ url_for('signup') }}" class="btn btn-primary">Sign Up</a>
+				<a href="{{ url_for('login') }}" class="btn btn-dark">Login</a>
+				<a href="{{ url_for('about') }}" class="btn btn-secondary">about the project</a>
+
+			</div>
+
+
+			<!-- <div class="section-device">
+				<img src="static/img/device.png">
+			</div> -->
+
+			<div class="clearfix"></div>
+
+		</div>
+	</main>
+{% endblock %}

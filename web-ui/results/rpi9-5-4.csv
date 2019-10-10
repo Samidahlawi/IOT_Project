@@ -1,0 +1,2 @@
+id,retries,discover_status,frame_id,dest_addr,deliver_status
+tx_status,b'\x00',b'\x00',b'\x01',"b""_'""",b'\x00'

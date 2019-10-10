@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<main class="hero-section">
+
+		<div class="container">
+			<h1> History </h1>
+				<div class="nodeInfo">
+		<table class="table">
+		  <thead class="thead-dark">
+		<tr>
+	    	<th>Experiment ID</th>
+	    	<th>title</th>
+	    	<th>description</th>
+	    	<th>created</th>
+	    	<th>protocol</th>
+	    	<th>status</th>
+	    	<th>results</th>
+	  	</tr>
+	  	  </thead>
+		{% for exp in exps %}
+			<tr>
+				<th>{{ exp['eid'] }}</th>
+				<th>{{ exp['title'] }}</th>
+				<th>{{ exp['description'] }}</th>
+				<th>{{ exp['created'] }}</th>
+				<th>{{ exp['protocol'] }}</th>
+				<th>{{ exp['status'] }}</th>
+				<th><a href="result/{{ exp['eid'] }}" class="btn btn-primary">result</a></th>
+			</tr>
+		{% endfor %}
+		</table>
+		</div>
+		</div>
+	</main>
+
+{% endblock %}

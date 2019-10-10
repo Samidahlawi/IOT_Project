@@ -1,0 +1,53 @@
+{% extends "layout.html"  %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Setup Nodes
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='css/nods.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="nodeInfo">
+	<table class="table">
+		 <thead class="thead-dark">
+	<tr>
+    	<th>Node Name</th>
+    	<th>Zigbee</th>
+    	<th>6lowpan</th>
+    	<th>Support Temperature</th>
+    	<th>Support Humdity</th>
+  	</tr>
+  	</thead>
+	{% for node in nodes %}
+		<tr>
+			<th>{{ node['name'] }}</th>
+			<th>{{ node['zigbee'] }}</th>
+			<th>{{ node['lowpan'] }}</th>
+			<th>{{ node['Temperature'] }}</th>
+			<th>{{ node['Humdity'] }}</th>
+		</tr>
+	{% endfor %}
+	</table>
+	</div>
+
+	<h2 class="form-signin-heading">Node Configuration</h2>
+	  <form class="form-signin" method="POST" action="/node">
+    	{{ form.hidden_tag() }}
+	   	{{ wtf.form_field(form.name) }}
+	    {{ wtf.form_field(form.temperature) }}
+	    {{ wtf.form_field(form.humdity) }}
+	    {{ wtf.form_field(form.mode) }}
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Add Node Configuration</button>
+  	</form>
+  	<br/>
+  	<a href="{{ url_for('scenario') }}" class="btn btn-primary">Go to scenario</a>
+  	<a href="{{ url_for('checknodes') }}" class="btn btn-primary">Check Configuration</a>
+</div> <!-- /container -->
+  
+{% endblock %}

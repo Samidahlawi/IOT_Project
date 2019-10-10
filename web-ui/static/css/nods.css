@@ -1,0 +1,37 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #e0e0d1;
+    color: black;
+}
+form {
+ /* Float both forms to the left */
+ float: left; 
+ /* borders added for visibility. Just remove them */
+ border: 1px;
+}
+form#updateForm {
+ clear: right;
+ /* with some space to the left of the second form */
+ margin-right: 20px; 
+}
+/* Give an id to the <p> which follows the second form and clear: both */
+p#submit {
+  clear: both;
+}
